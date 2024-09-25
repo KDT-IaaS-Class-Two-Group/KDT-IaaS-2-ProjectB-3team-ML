@@ -1,0 +1,115 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# C extensions
+*.so
+
+# Distribution / packaging
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# Installer logs
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Virtual environment
+ecovision/
+venv/
+env/
+ENV/
+.venv/
+.ENV/
+
+# Pyenv
+.python-version
+
+# VS Code files
+.vscode/
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# Pytest cache
+.cache
+
+# MyPy
+.mypy_cache/
+.dmypy.json
+dmypy.json
+
+# Pyre
+.pyre/
+
+# Coverage reports
+htmlcov/
+.tox/
+.nox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.py,cover
+.hypothesis/
+
+# Flask specific
+instance/
+*.db
+*.sqlite
+*.sqlite3
+
+# PyTorch specific
+*.pt
+*.pth
+
+# Model checkpoints and logs
+checkpoints/
+logs/
+*.log
+
+# Dataset files
+data/processed/
+data/raw/
+data/
+
+# Temporary files and folders
+*.swp
+*.swo
+*.tmp
+*.temp
+*.bak
+*.old
+
+# Large files or binaries
+*.tar
+*.gz
+*.zip
+*.rar
+*.7z
+*.dmg
+*.iso
+*.jar
+*.war
+
+# OS generated files
+.DS_Store
+Thumbs.db
+Desktop.ini
