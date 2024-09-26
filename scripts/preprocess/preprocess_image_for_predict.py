@@ -1,8 +1,5 @@
-import os
-import numpy as np
 from PIL import Image
 from torchvision import transforms
-import torch
 
 def preprocess_image_for_predict(image_path):
     img = Image.open(image_path).convert('RGB')

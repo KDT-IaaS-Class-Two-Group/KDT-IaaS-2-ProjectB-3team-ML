@@ -1,7 +1,6 @@
 import torch
-from PIL import Image
 from train_model import RGBClassifier
-from preprocess.preprocess_image_for_predict import preprocess_image_for_predict
+from scripts.preprocess.preprocess_image_for_predict import preprocess_image_for_predict
 
 def predict_image(image_path):
     model = RGBClassifier()

@@ -1,6 +1,4 @@
 import os
-import numpy as np
-from PIL import Image
 import torch
 from .preprocess.preprocess_image import preprocess_image
 
