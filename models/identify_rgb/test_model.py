@@ -22,7 +22,7 @@ def test_model():
 
     # 모델을 인스턴스화하고 저장된 가중치를 불러온 후 평가 모드로 설정
     model = RGBClassifier()  # RGBClassifier 모델 인스턴스 생성
-    model.load_state_dict(torch.load('checkpoints/rgb_classifier.pth'))  # 저장된 가중치 불러오기
+    model.load_state_dict(torch.load('checkpoints/rgb_classifier.pth', weights_only=True))  # 저장된 가중치 불러오기
     model.eval()  # 모델을 평가 모드로 설정 (학습 관련 동작 비활성화)
 
     correct = 0  # 맞춘 예측값 개수
