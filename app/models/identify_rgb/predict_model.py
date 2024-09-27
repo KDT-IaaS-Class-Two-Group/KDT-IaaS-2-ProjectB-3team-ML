@@ -1,13 +1,13 @@
 import torch  # PyTorch 라이브러리 임포트
 from train_model import RGBClassifier  # RGBClassifier 모델 임포트
-from preprocess.preprocess_for_predict import preprocess_image_for_predict  # 이미지 전처리 함수 임포트
+from app.scripts.preprocess.preprocess_image_for_predict import preprocess_image_for_predict
 
 def predict_image(image_path):
     # RGBClassifier 모델 초기화
     model = RGBClassifier()
     
     # 학습된 모델의 가중치 불러오기
-    model.load_state_dict(torch.load('checkpoints/rgb_classifier.pth', weights_only=True))
+    model.load_state_dict(torch.load('app/checkpoints/rgb_classifier.pth', weights_only=True))
     
     # 모델을 평가 모드로 설정 (dropout 및 batch normalization 비활성화)
     model.eval()
@@ -26,7 +26,7 @@ def predict_image(image_path):
 
 if __name__ == "__main__":
     # 예측할 이미지 경로 지정
-    result = predict_image('data/test_data/B.png')
+    result = predict_image('app/data/test_data/B.png')
     
     # 예측 결과 출력
     print(f'Predicted: {result}')

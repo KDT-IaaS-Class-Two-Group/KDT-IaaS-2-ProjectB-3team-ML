@@ -27,4 +27,4 @@ def generate_rgb_images(save_dir, size=(10, 10)):
 
 if __name__ == "__main__":
     # RGB 이미지를 저장할 디렉토리 지정
-    generate_rgb_images('data/test_data')  # 'data/test_data' 디렉토리에 이미지 생성
+    generate_rgb_images('app/data/train_data')  # 'data/test_data' 디렉토리에 이미지 생성

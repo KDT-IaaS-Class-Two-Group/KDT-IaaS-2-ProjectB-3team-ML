@@ -1,6 +1,6 @@
 import os  # 운영 체제와의 상호작용을 위한 os 모듈 임포트
 import torch  # PyTorch 라이브러리 임포트
-from .preprocess.preprocess_image import preprocess_image  # 이미지 전처리 함수 임포트
+from preprocess.preprocess_image import preprocess_image  # 이미지 전처리 함수 임포트
 
 def preprocess_and_save_data(input_dir, output_dir):
     # 출력 디렉토리가 존재하지 않으면 생성
@@ -19,4 +19,4 @@ def preprocess_and_save_data(input_dir, output_dir):
 
 if __name__ == "__main__":
     # 입력 디렉토리와 출력 디렉토리 지정 후 함수 호출
-    preprocess_and_save_data('data/train_data', 'data/preprocess_data')  # 'data/train_data'에서 전처리 후 'data/preprocess_data'에 저장
+    preprocess_and_save_data('app/data/train_data', 'app/data/preprocess_data')  # 'data/train_data'에서 전처리 후 'data/preprocess_data'에 저장

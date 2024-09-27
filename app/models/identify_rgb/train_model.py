@@ -1,6 +1,7 @@
 import torch
 import torch.nn as nn
 import torch.optim as optim
+import os
 from torch.utils.data import DataLoader
 from datasets.rgb_dataset import RGBDataset
 from networks.rgb_classifer import RGBClassifier
@@ -23,7 +24,7 @@ def train_model():
     """
     데이터셋을 로드하고 모델을 학습하는 주요 과정입니다.
     """
-    dataset = RGBDataset('data/preprocess_data')  # RGBDataset을 이용해 전처리된 데이터셋을 불러옵니다.
+    dataset = RGBDataset('app/data/preprocess_data')  # RGBDataset을 이용해 전처리된 데이터셋을 불러옵니다.
     dataloader = DataLoader(dataset, batch_size=4, shuffle=True)  # 데이터셋을 배치 크기 4로 나누고, 데이터를 무작위로 섞습니다.
 
     model = RGBClassifier()  # RGBClassifier 모델을 인스턴스화합니다.
@@ -44,9 +45,17 @@ def train_model():
             optimizer.zero_grad()  # 역전파 전에 옵티마이저의 기울기를 초기화합니다.
             loss.backward()  # 역전파를 통해 손실에 대한 기울기를 계산합니다.
             optimizer.step()  # 옵티마이저가 계산된 기울기를 사용해 모델의 가중치를 업데이트합니다.
+            
+    checkpoint_dir = 'app/checkpoints'
+    if not os.path.exists(checkpoint_dir):  # 폴더가 존재하지 않으면
+        os.makedirs(checkpoint_dir)  # 폴더를 생성
 
     # 학습된 모델의 가중치를 파일에 저장
-    torch.save(model.state_dict(), 'checkpoints/rgb_classifier.pth')  # 학습된 모델 가중치를 파일로 저장합니다.
+    torch.save(model.state_dict(), os.path.join(checkpoint_dir, 'rgb_classifier.pth'))  # 학습된 모델 가중치를 파일로 저장
+
+
+    # 학습된 모델의 가중치를 파일에 저장
+    torch.save(model.state_dict(), 'app/checkpoints/rgb_classifier.pth')  # 학습된 모델 가중치를 파일로 저장합니다.
 
 if __name__ == "__main__":
     train_model()
