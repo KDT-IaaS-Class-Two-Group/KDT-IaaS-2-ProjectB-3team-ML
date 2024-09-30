@@ -1,12 +1,12 @@
-# app/__init__.py
 from .models import *
 from .scripts import *
 from .static import *
 from flask import Flask
 from flask_cors import CORS
+from .routes.predict_image import predict_bp
+
 
 def create_app():
-
     # Flask 앱 인스턴스 생성
     app = Flask(__name__)
 
@@ -17,8 +17,10 @@ def create_app():
     CORS(app)
 
     @app.route('/')
-    def home() :
-        return "hello Python"
+    def home():
+        return "Hello, Flask!"
 
+    # 여기에 predict_image 블루프린트를 등록합니다
+    app.register_blueprint(predict_bp)
 
     return app
