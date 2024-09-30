@@ -1,28 +1,42 @@
 import unittest
 from app import create_app
 from flask import current_app
+import os
+import json
 
 class TestFlaskApp(unittest.TestCase):
     def setUp(self):
-        # 애플리케이션을 생성하고 테스트 모드로 전환합니다.
         self.app = create_app()
         self.app.testing = True
-        self.client = self.app.test_client()  # 테스트 클라이언트 생성
+        self.client = self.app.test_client()
 
     def test_app_exists(self):
-        # 애플리케이션 인스턴스가 존재하는지 확인합니다.
         with self.app.app_context():
             self.assertIsNotNone(current_app)
 
     def test_app_is_testing(self):
-        # 애플리케이션이 테스트 모드에서 실행되고 있는지 확인합니다.
         self.assertTrue(self.app.testing)
 
     def test_home_endpoint(self):
-        # '/' 엔드포인트가 올바르게 작동하는지 확인합니다.
         response = self.client.get('/')
         self.assertEqual(response.status_code, 200)
-        self.assertIn(b'Hello, Flask!', response.data)  # 응답에 예상 문자열이 포함되어 있는지 확인합니다.
+        self.assertIn(b'Hello, Flask!', response.data)
+
+    def test_predict_endpoint(self):
+        test_image_path = os.path.join('app', 'data', 'train_data', 'R.png')
+        
+        with open(test_image_path, 'rb') as img:
+            response = self.client.post('/predict', data={'file': (img, 'R.png')})
+        
+        self.assertEqual(response.status_code, 200)
+        response_data = json.loads(response.data.decode('utf-8'))
+        
+        self.assertIn('result', response_data)
+        predicted_result = response_data['result']
+        
+        print(f"\nPredicted result: {predicted_result}")  # 예측 결과 출력
+        
+        self.assertEqual(predicted_result, 'R')  # 'R'이 예상되는 예측 결과라고 가정, 만약 여러개의 값중 옳은지 고르려면 assertIn을 사용
 
 if __name__ == '__main__':
     unittest.main()
