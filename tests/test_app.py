@@ -1,5 +1,5 @@
 import unittest
-from app import create_app
+from src import create_app
 from flask import current_app
 import os
 import json
@@ -23,7 +23,7 @@ class TestFlaskApp(unittest.TestCase):
         self.assertIn(b'Hello, Flask!', response.data)
 
     def test_predict_endpoint(self):
-        test_image_path = os.path.join('app', 'data', 'train_data', 'R.png')
+        test_image_path = os.path.join('src', 'data', 'train_data', 'R.png')
         
         with open(test_image_path, 'rb') as img:
             response = self.client.post('/predict', data={'file': (img, 'R.png')})
