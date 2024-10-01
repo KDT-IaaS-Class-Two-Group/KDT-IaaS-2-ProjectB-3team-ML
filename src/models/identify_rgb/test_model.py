@@ -1,7 +1,7 @@
 import torch
 from torch.utils.data import DataLoader
-from app.models.identify_rgb.train_model import RGBClassifier, RGBDataset
-from app.static.models.identify_rgb.test_model_static import test_model_batch_size,test_model_preprocess_data_dir, test_model_path
+from src.models.identify_rgb.train_model import RGBClassifier, RGBDataset
+from src.static.models.identify_rgb.test_model_static import test_model_batch_size,test_model_preprocess_data_dir, test_model_path
 def test_model():
     """
     학습된 모델을 테스트하고 정확도를 계산하는 함수입니다.

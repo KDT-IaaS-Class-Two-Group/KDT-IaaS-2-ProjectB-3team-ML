@@ -1,7 +1,7 @@
 import numpy as np  # NumPy 라이브러리 임포트
 import os  # 운영 체제와의 상호작용을 위한 os 모듈 임포트
 from PIL import Image  # PIL 라이브러리의 Image 모듈 임포트
-from app.static.scripts.generatae_data_static import generate_image_size,generate_save_dir,generate_ext,generate_image_colors
+from src.static.scripts.generatae_data_static import generate_image_size,generate_save_dir,generate_ext,generate_image_colors
 
 def generate_rgb_images(save_dir = generate_save_dir, size= generate_image_size):
     # 저장할 디렉토리가 없으면 생성

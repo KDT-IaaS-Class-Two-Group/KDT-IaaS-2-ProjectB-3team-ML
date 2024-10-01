@@ -1,7 +1,7 @@
 import torch  # PyTorch 라이브러리 임포트
-from app.models.identify_rgb.train_model import RGBClassifier  # RGBClassifier 모델 임포트
-from app.scripts.preprocess.preprocess_image_for_predict import preprocess_image_for_predict
-from app.static.models.identify_rgb.predict_model_static import predict_model_checkpoint_path,predict_model_default_image_path,predict_model_label_map
+from src.models.identify_rgb.train_model import RGBClassifier  # RGBClassifier 모델 임포트
+from src.scripts.preprocess.preprocess_image_for_predict import preprocess_image_for_predict
+from src.static.models.identify_rgb.predict_model_static import predict_model_checkpoint_path,predict_model_default_image_path,predict_model_label_map
 
 def predict_image(image_path):
     # RGBClassifier 모델 초기화

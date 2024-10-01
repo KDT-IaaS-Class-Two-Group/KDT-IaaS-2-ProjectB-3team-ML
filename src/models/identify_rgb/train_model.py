@@ -3,9 +3,9 @@ import torch.nn as nn
 import torch.optim as optim
 import os
 from torch.utils.data import DataLoader
-from app.models.identify_rgb.datasets.rgb_dataset import RGBDataset
-from app.models.identify_rgb.networks.rgb_classifer import RGBClassifier
-from app.static.models.identify_rgb.train_model_static import train_model_batch_size,train_model_checkpoint_dir,train_model_epochs,train_model_learning_rate,train_model_preprocess_data_dir, train_model_save_name
+from src.models.identify_rgb.datasets.rgb_dataset import RGBDataset
+from src.models.identify_rgb.networks.rgb_classifer import RGBClassifier
+from src.static.models.identify_rgb.train_model_static import train_model_batch_size,train_model_checkpoint_dir,train_model_epochs,train_model_learning_rate,train_model_preprocess_data_dir, train_model_save_name
 # 만약 따로 구분 짓지 않겠다면, import * 로 파일안의 모든 것 import 가능.
 
 """
