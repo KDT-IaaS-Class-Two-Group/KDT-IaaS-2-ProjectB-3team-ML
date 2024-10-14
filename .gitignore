@@ -1,2 +1,32 @@
 # venv
 wildest
+
+# Ignore .env file
+.env
+.env.*
+
+# Python bytecode
+__pycache__/
+*.py[cod]
+
+
+# IDE files (VSCode, PyCharm, etc.)
+.vscode/
+.idea/
+
+# Log files
+*.log
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# Coverage reports
+coverage.xml
+*.cover
+*.py,cover
+.coverage
+.coverage.*
+
+# Test output
+nosetests.xml
+*.orig
