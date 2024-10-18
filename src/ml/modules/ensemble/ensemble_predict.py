@@ -1,12 +1,15 @@
+from PIL import Image
 from src.ml.modules.image.preprocess_image import preprocess_image
 
-def ensemble_predict(models, image_path):
-    """앙상블 예측 함수"""
-    img = preprocess_image(image_path)
-    
+def ensemble_predict(models, image):
+    # image는 PIL.Image 객체여야 합니다
+    # 모델에 따라 이미지를 적절히 전처리해야 합니다
+    processed_image = preprocess_image(image)
+
+    # 모델에 대한 예측 수행
     predictions = []
-    for animal, model in models:
-        results = model(img)  # 이제 모델이 객체이므로 호출 가능
-        predictions.append((animal, results.xyxy[0]))  # 동물 레이블과 예측 결과 저장
+    for model in models:
+        pred = model.predict(processed_image)
+        predictions.append(pred)
 
     return predictions
